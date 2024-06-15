@@ -139,7 +139,7 @@ class Scraper:
                 reviews = self.driver.find_element(By.XPATH,"//div[contains(@class, 'fontBodySmall') and substring(text(), string-length(text()) - string-length('reviews') + 1) = 'reviews']").text
         except:
             print(traceback.format_exc())
-            reviews = 0
+            reviews = "0 reviews"
             
         return [name,address,website,reviews]
     
@@ -154,7 +154,7 @@ class Scraper:
             
         total_details = []
         columns = ['Name','Address','Website','Reviews','Email','Maps_Url']
-        for i,href in enumerate(hrefs[:20]):
+        for i,href in enumerate(hrefs):
             print(i+1,'/',len(hrefs))
             print(href)
             self.open_maps(href)

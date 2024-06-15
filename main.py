@@ -21,13 +21,25 @@ def scrape_details():
     
     # Change label to show "Collecting Data"
     status_label.config(text="Collecting Data", foreground="orange")
-    root.update_idletasks()
     
+    
+    scrape_button.config(state=tk.DISABLED)
+    scrape_button.config(bg="gray")
+    
+    root.update_idletasks()
     # Call the function to process the data
     process_data(field, area, city, country)
     
+    
+    scrape_button.config(state=tk.ACTIVE)
+    scrape_button.config(bg="#white")
+
+    
+    
+        
     # Change label to show "Results Gathered"
     status_label.config(text="Scrape Complete", foreground="green")
+    root.update_idletasks()
     
     
 root = tk.Tk()
